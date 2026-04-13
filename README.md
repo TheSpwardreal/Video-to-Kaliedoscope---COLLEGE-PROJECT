@@ -17,7 +17,9 @@ to edit tons of filters to get the psychedelic effect done.
 - Feature 3
 	- Horizontally and Vertically split a mirror version the video.
 - Feature 4 
-	- Diagonally mirror split the video sreen. 
+	- Cut a diagonal 4 side polygon piece of each the video's corners, starting from the center to the border edges.  
+- Feature 5 
+	- Diagonally mirror the corresponding polygons to the video sreen so that they are inverted, helping with the filter. 
 
 ## Challenges
 - Short sentence of any skill or topic that needs to be learnt or researched.
@@ -34,13 +36,13 @@ Minimal Viable Outcome:
 ## Milestones
 
 - Week 1
-  1. Goal 1
-  2. Goal 2
+  1. figure out importing video files
+  2. grab the screen ratio, begin slicing horizontal / vertical / polygonal pieces of the screen
 
 - Week 2
-  1. Goal 1
-  2. Goal 2
+  1. apply rainbow filter
+  2. attempt mirroring, see what happens
 
 - Week N (Final)
-  1. Goal 1
-  2. Goal 2
+  1. test out how it works with videos of different ratios
+  2. adding any final touch additional filters
