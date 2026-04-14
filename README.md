@@ -46,3 +46,6 @@ Minimal Viable Outcome:
 - Week N (Final)
   1. test out how it works with videos of different ratios
   2. adding any final touch additional filters
+ 
+  > [!NOTE]
+> This kaliedoscope filter deals a lot with videos, so I have a feeling a lot of time will be spent processing the video when running!
