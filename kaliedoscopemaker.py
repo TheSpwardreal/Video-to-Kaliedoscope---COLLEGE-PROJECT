@@ -1,27 +1,16 @@
-import pygame
+import glob
+import os
+
+import moviepy.editor as mpy
+
 
 def main():
-    pygame.init()
-    pygame.display.set_caption("Kaliedoscopefilter")
-    resolution = (800, 600)
-    screen = pygame.display.set_mode(resolution)
-    
-    
-    
-    running = True
-    while running:
-        # silly events
-        screen.fill((0,0,0))
-        
-        # Event Loop
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-        
-        #pygame update
-        pygame.display.update()
-
-    pygame.quit()
+    img_seq = glob.glob(os.path.join('kaliedoscope', '.png'))
+    img_seq.sort()
+    print(img_seq)
+    clip = mpy.ImageSequenceClip(img_seq, fps=24)
+    clip.write_videofile('kaliedoscopevideo.mp4')
+    clip.close()
 
 
 if __name__ == "__main__":
