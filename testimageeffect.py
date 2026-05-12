@@ -18,7 +18,7 @@ def main():
 
         vert_img = cut_img.transpose(Image.FLIP_LEFT_RIGHT) # vertically mirrored image
 
-        out_img = Image.blend(forg_img, vert_img, 1)
+        out_img = Image.blend(vert_img, forg_img, 1)
         
         out_img.show()
 
