@@ -8,18 +8,20 @@ def rgba_alphazero(pixel):
 
 def main():
     with Image.open("penlo3d.png") as img:
-        forg_img = img #foreground image
-        half_img = img.copy() #image used to be cut in half
+        forg_img = img #foreground image to not be changed
+        xhalf_img = img.copy() #image used to be cut in half
         for y in range(img.height):
             for x in range(img.width//2): # 2nd in heirarchy is half the pixel width
                 pix = img.getpixel((x,y)) # grabbing the pixel ratios in order to measure it when applying
-                half_img.putpixel((x,y), rgba_alphazero(pix)) # applying vertical / horizontals
-        cut_img = half_img
+                xhalf_img.putpixel((x,y), rgba_alphazero(pix)) # applying vertical / horizontals
+        cut_img = xhalf_img
 
         vert_img = cut_img.transpose(Image.FLIP_LEFT_RIGHT) # vertically mirrored image
 
-        out_img = Image.blend(vert_img, forg_img, 1)
+        out_img = Image.alpha_composite(forg_img, vert_img)
         
+        vert_img.show()
+        forg_img.show()
         out_img.show()
 
 if __name__ == "__main__":
