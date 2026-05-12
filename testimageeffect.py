@@ -14,9 +14,8 @@ def main():
             for x in range(img.width//2): # 2nd in heirarchy is half the pixel width
                 pix = img.getpixel((x,y)) # grabbing the pixel ratios in order to measure it when applying
                 out_img.paste((x,y), vert_img(pix), horz_img(pix)) # applying vertical / horizontals
-        forg_img = img # original image
-        
-        img.show()
+
+        out_img.show()
 
 
 
