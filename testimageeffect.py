@@ -14,9 +14,9 @@ def main():
             for x in range(img.width//2): # 2nd in heirarchy is half the pixel width
                 pix = img.getpixel((x,y)) # grabbing the pixel ratios in order to measure it when applying
                 xhalf_img.putpixel((x,y), rgba_alphazero(pix)) # applying vertical / horizontals
-        cut_img = xhalf_img
+        xcut_img = xhalf_img
 
-        vert_img = cut_img.transpose(Image.FLIP_LEFT_RIGHT) # vertically mirrored image
+        vert_img = xcut_img.transpose(Image.FLIP_LEFT_RIGHT) # vertically mirrored image
 
         out_img = Image.alpha_composite(forg_img, vert_img)
         
