@@ -1,24 +1,25 @@
 from PIL import Image
 
-
+def rgba_alphazero(pixel):
+    r, g, b, a = pixel
+    zero_value = a - a
+    return (r, g, b, zero_value)
 
 
 def main():
-    with (Image.open("penlo3d.png") as img,
-          Image.open("penlo3d.png") as overlay_img, 
-          Image.open("penlo3d.png") as overtop_img):
-        out_img = img.copy()
-        vert_img = overlay_img.transpose(Image.FLIP_LEFT_RIGHT) # vertically mirrored image
-        horz_img = overtop_img.transpose(Image.FLIP_TOP_BOTTOM) # horizontally mirrored image
+    with Image.open("penlo3d.png") as img:
+        forg_img = img
+        half_img = img.copy()
         for y in range(img.height):
             for x in range(img.width//2): # 2nd in heirarchy is half the pixel width
                 pix = img.getpixel((x,y)) # grabbing the pixel ratios in order to measure it when applying
-                out_img.paste((x,y), vert_img(pix), horz_img(pix)) # applying vertical / horizontals
+                half_img.putpixel((x,y), rgba_alphazero(pix)) # applying vertical / horizontals
+        cut_img = half_img
 
-        out_img.show()
+        vert_img = cut_img.transpose(Image.FLIP_LEFT_RIGHT) # vertically mirrored image
 
-
-
+        out_img = Image.blend(forg_img, vert_img, 0.5)
+        
 
 if __name__ == "__main__":
     main()
