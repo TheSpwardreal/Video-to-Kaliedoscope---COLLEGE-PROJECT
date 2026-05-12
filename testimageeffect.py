@@ -19,10 +19,22 @@ def main():
         vert_img = xcut_img.transpose(Image.FLIP_LEFT_RIGHT) # vertically mirrored image
 
         out_img = Image.alpha_composite(forg_img, vert_img)
+# ^^^^^^^^^^^^^^^^^^^^^^^^^ VERTICALLY MIRRORING ^^^^^^^^^^^^^^^^^ 
+        yhalf_img = img.copy()
+        for x in range(img.width):
+            for y in range(img.height //2): #this step will make a cut of the horizontal side of the image
+                hpix = img.getpixel((x,y))
+                yhalf_img.putpixel((x,y),rgba_alphazero(pix))
+        ycut_img = yhalf_img
+
+        hor_img = ycut_img.transpose(Image.FLIP_TOP_BOTTOM) # horizontally mirrored image
         
-        vert_img.show()
-        forg_img.show()
+        final_img = Image.alpha_composite(out_img, hor_img)
+
+# ^^^^^^^^^^^^^^^^^^^^^^^^^ HORIZONTALLY MIRRORING ^^^^^^^^^^^^^^^^^ 
+
         out_img.show()
+        final_img.show()
 
 if __name__ == "__main__":
     main()
