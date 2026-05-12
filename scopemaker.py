@@ -33,7 +33,18 @@ def main():
 
 # ^^^^^^^^^^^^^^^^^^^^^^^^^ HORIZONTALLY MIRRORING ^^^^^^^^^^^^^^^^^ 
 
-        final_img.show()
+      #  final_img.show()
+        duration_in_secs = 2.0
+        fps = 24.0
+        total_frames = int(duration_in_secs * fps)
+
+        out_img_seq = []
+        for n in range(total_frames):
+            out_img_seq.append(final_img)
+
+        out_img_seq[0].save('kaliedoscope.gif', append_images=out_img_seq[1:],
+                            save_all=True, loop=0,
+                            duration=1000/24.0)
 
 if __name__ == "__main__":
     main()
