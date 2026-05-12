@@ -20,6 +20,7 @@ def main():
 
         out_img = Image.blend(forg_img, vert_img, 0.5)
         
+        out_img.show()
 
 if __name__ == "__main__":
     main()
