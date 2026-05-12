@@ -2,9 +2,9 @@ from PIL import Image
 
 
 def main():
-    with (Image.open("cloudsfortest.png") as img,
-          Image.open("cloudsfortest.png") as overlay_img, 
-          Image.open("cloudsfortest.png") as overtop_img):
+    with (Image.open("penlo3d.png") as img,
+          Image.open("penlo3d.png") as overlay_img, 
+          Image.open("penlo3d.png") as overtop_img):
         forg_img = img
         vert_img = overlay_img.transpose(Image.FLIP_LEFT_RIGHT)
         horz_img = overtop_img.transpose(Image.FLIP_TOP_BOTTOM)
