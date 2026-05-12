@@ -8,8 +8,8 @@ def rgba_alphazero(pixel):
 
 def main():
     with Image.open("penlo3d.png") as img:
-        forg_img = img
-        half_img = img.copy()
+        forg_img = img #foreground image
+        half_img = img.copy() #image used to be cut in half
         for y in range(img.height):
             for x in range(img.width//2): # 2nd in heirarchy is half the pixel width
                 pix = img.getpixel((x,y)) # grabbing the pixel ratios in order to measure it when applying
